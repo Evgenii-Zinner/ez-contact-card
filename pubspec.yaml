@@ -1,6 +1,6 @@
 name: ez_contact_card
 description: A customizable contact card widget composed of an avatar, name, subtitle, and an optional tail widget.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Evgenii-Zinner/ez-contact-card
 repository: https://github.com/Evgenii-Zinner/ez-contact-card
 issue_tracker: https://github.com/Evgenii-Zinner/ez-contact-card/issues
