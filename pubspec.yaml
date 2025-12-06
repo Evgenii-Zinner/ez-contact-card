@@ -1,0 +1,31 @@
+name: ez_contact_card
+description: A customizable contact card widget composed of an avatar, name, subtitle, and an optional tail widget.
+version: 0.0.1
+homepage: https://github.com/Evgenii-Zinner/ez-contact-card
+repository: https://github.com/Evgenii-Zinner/ez-contact-card
+issue_tracker: https://github.com/Evgenii-Zinner/ez-contact-card/issues
+documentation: https://flutter.ezinner.com/ez_contact_card
+topics:
+  - flutter
+  - ez-flutter
+  - contact-card
+  - ui
+  - widgets
+funding:
+  - https://github.com/sponsors/Evgenii-Zinner/
+  - https://thanks.dev/u/gh/evgenii-zinner
+  - https://buymeacoffee.com/evgeniizinner
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ez_circle_avatar: ^0.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
