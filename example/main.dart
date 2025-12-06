@@ -44,7 +44,6 @@ class MyHomePage extends StatelessWidget {
             onTap: () {},
           ),
           const SizedBox(height: 16),
-
           const SectionHeader(title: '2. With Subtitle'),
           EzContactCard(
             name: 'John Smith',
@@ -53,7 +52,6 @@ class MyHomePage extends StatelessWidget {
             onTap: () {},
           ),
           const SizedBox(height: 16),
-
           const SectionHeader(title: '3. With Action (Tail)'),
           EzContactCard(
             name: 'Alice Johnson',
@@ -68,7 +66,6 @@ class MyHomePage extends StatelessWidget {
             onTap: () {},
           ),
           const SizedBox(height: 16),
-
           const SectionHeader(title: '4. Fully Styled'),
           EzContactCard(
             name: 'Design System Card',
@@ -100,11 +97,11 @@ class MyHomePage extends StatelessWidget {
             onTap: () {},
           ),
           const SizedBox(height: 16),
-
           const SectionHeader(title: '5. Long Text Handling'),
           EzContactCard(
             name: 'Christopher Alexander Williamson',
-            subtitle: 'Senior Vice President of Global Engineering & Technology',
+            subtitle:
+                'Senior Vice President of Global Engineering & Technology',
             avatar: const EzCircleAvatar(name: 'CW'),
             tail: const Icon(Icons.chevron_right),
             onTap: () {},

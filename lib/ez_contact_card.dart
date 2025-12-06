@@ -106,7 +106,8 @@ class EzContactCard extends StatelessWidget {
     // Container Styling
     this.decoration,
     this.margin,
-    this.contentPadding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+    this.contentPadding =
+        const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
     this.clipBehavior = Clip.hardEdge,
 
     // Text Styling
