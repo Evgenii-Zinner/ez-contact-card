@@ -3,12 +3,70 @@ library ez_contact_card;
 import 'package:flutter/material.dart';
 import 'package:ez_circle_avatar/ez_circle_avatar.dart';
 
-/// A customizable contact card widget composed of an avatar, name, subtitle, and an optional tail widget.
+/// A card that displays an avatar, a name, an optional subtitle, and a tail widget.
 ///
-/// This widget follows the composition of:
-/// [Avatar] - [Gap] - [Name + Subtitle] - [Gap] - [Tail]
+/// The [EzContactCard] is a stateless widget that composes these elements into a
+/// horizontal layout:
 ///
-/// It provides extensive customization options for styling, interaction, and layout.
+/// * [avatar]: Displayed on the left.
+/// * [name]: The primary text, displayed in a column.
+/// * [subtitle]: Optional secondary text below the name.
+/// * [tail]: Optional widget displayed on the right.
+///
+/// ## Layout algorithm
+///
+/// The widget uses a [Row] to align its children. The text column is wrapped in
+/// an [Expanded] widget to ensure that long names or subtitles are truncated
+/// with an ellipsis instead of causing a layout overflow.
+///
+/// The spacing between the avatar, text column, and tail is controlled by the [gap]
+/// property. The vertical alignment of the row is controlled by [verticalAlignment].
+///
+/// ## Styling
+///
+/// The card's container can be customized using [decoration] for background, borders,
+/// and shadows, and [margin] for external spacing. The [contentPadding] property
+/// controls the internal spacing around the content.
+///
+/// Text styles can be customized via [nameStyle] and [subtitleStyle]. If not provided,
+/// they use sensible defaults from the current [Theme].
+///
+/// ## Examples
+///
+/// ### Basic usage
+///
+/// ```dart
+/// EzContactCard(
+///   name: 'Jane Doe',
+///   avatar: EzCircleAvatar(name: 'Jane Doe'),
+/// )
+/// ```
+///
+/// ### Styled with action
+///
+/// ```dart
+/// EzContactCard(
+///   name: 'John Smith',
+///   subtitle: 'Software Engineer',
+///   avatar: EzCircleAvatar(name: 'John Smith'),
+///   tail: IconButton(
+///     icon: const Icon(Icons.phone),
+///     onPressed: () {},
+///   ),
+///   decoration: BoxDecoration(
+///     color: Colors.white,
+///     borderRadius: BorderRadius.circular(12),
+///     boxShadow: const [
+///       BoxShadow(blurRadius: 4, color: Colors.black12),
+///     ],
+///   ),
+/// )
+/// ```
+///
+/// See also:
+///
+///  * [EzCircleAvatar], which is commonly used as the avatar widget.
+///  * [ListTile], a standard Flutter widget with a similar layout.
 class EzContactCard extends StatelessWidget {
   /// The name to display as the main headline.
   final String name;
