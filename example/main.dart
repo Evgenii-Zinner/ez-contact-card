@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:ez_contact_card/ez_contact_card.dart';
 import 'package:ez_circle_avatar/ez_circle_avatar.dart';
+import 'package:ez_contact_card/ez_contact_card.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,11 +44,15 @@ class MyHomePage extends StatelessWidget {
             onTap: () {},
           ),
           const SizedBox(height: 16),
-          const SectionHeader(title: '2. With Subtitle'),
+          const SectionHeader(title: '2. With Subtitle & Visuals'),
           EzContactCard(
             name: 'John Smith',
             subtitle: 'Software Engineer',
             avatar: const EzCircleAvatar(name: 'John Smith'),
+            backgroundColor: Colors.blue.shade50,
+            border: Border.all(color: Colors.blue.shade200),
+            borderRadius: BorderRadius.circular(8),
+            elevation: 4,
             onTap: () {},
           ),
           const SizedBox(height: 16),
@@ -76,7 +80,7 @@ class MyHomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),

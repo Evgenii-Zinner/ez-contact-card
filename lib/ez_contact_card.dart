@@ -1,7 +1,7 @@
 library ez_contact_card;
 
-import 'package:flutter/material.dart';
 import 'package:ez_circle_avatar/ez_circle_avatar.dart';
+import 'package:flutter/material.dart';
 
 /// A card that displays an avatar, a name, an optional subtitle, and a tail widget.
 ///
@@ -105,7 +105,25 @@ class EzContactCard extends StatelessWidget {
 
   /// The decoration to paint behind the child.
   /// Use this to add background color, border, borderRadius, box shadow, etc.
+  /// If [decoration] is provided, [backgroundColor], [border], [borderRadius],
+  /// and [elevation] are ignored.
   final BoxDecoration? decoration;
+
+  /// The background color of the card.
+  /// Ignored if [decoration] is provided.
+  final Color? backgroundColor;
+
+  /// The border to draw around the card.
+  /// Ignored if [decoration] is provided.
+  final Border? border;
+
+  /// The border radius of the card's corners.
+  /// Ignored if [decoration] is provided.
+  final BorderRadiusGeometry? borderRadius;
+
+  /// The elevation of the card, which controls the size of the shadow.
+  /// Defaults to 0. Ignored if [decoration] is provided.
+  final double elevation;
 
   /// Empty space to surround the [decoration] and child.
   final EdgeInsetsGeometry? margin;
@@ -163,6 +181,10 @@ class EzContactCard extends StatelessWidget {
 
     // Container Styling
     this.decoration,
+    this.backgroundColor,
+    this.border,
+    this.borderRadius,
+    this.elevation = 0,
     this.margin,
     this.contentPadding =
         const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
@@ -181,10 +203,26 @@ class EzContactCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final BoxDecoration effectiveDecoration = decoration ??
+        BoxDecoration(
+          color: backgroundColor,
+          border: border,
+          borderRadius: borderRadius,
+          boxShadow: elevation > 0
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.1),
+                    blurRadius: elevation,
+                    offset: Offset(0, elevation / 2),
+                  ),
+                ]
+              : null,
+        );
+
     return Container(
       margin: margin,
-      decoration: decoration,
-      clipBehavior: decoration != null ? clipBehavior : Clip.none,
+      decoration: effectiveDecoration,
+      clipBehavior: clipBehavior,
       child: Material(
         type: MaterialType.transparency,
         child: InkWell(
